@@ -1,5 +1,9 @@
 .welcome{
     background: rgb(33,37,41);
+    min-height: 90vh;
+    .stack{
+        height: 90vh
+    }
     .arrowDown{
         filter: invert(100%); 
         &:hover{
