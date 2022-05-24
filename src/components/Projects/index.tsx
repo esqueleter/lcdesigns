@@ -6,7 +6,7 @@ import Link from "next/link"
 const Projects: NextPage = () => {
   return (
    <>
-        <Container id="projects" fluid className="container-xxl">
+        <Container id="projects" fluid>
             <h3 className="d-flex justify-content-center my-5">Projetos</h3>
             <Stack className="d-flex flex-wrap my-3 justify-content-center" direction='horizontal' gap={5}>
               <ImageCard/>
