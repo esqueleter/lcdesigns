@@ -6,17 +6,14 @@ import Layout from '../Layout';
 
 const Projects: NextPage = () => {
   return (
-    <Layout>
-      <Container id="projects" fluid>
-        <h3 className="d-flex justify-content-center my-5">Projetos</h3>
+    <Layout id="projects">
+      <Container fluid className={'defaultContainer'}>
+        <h3 className="d-flex justify-content-center my-4">Projetos</h3>
         <Stack
           className="d-flex flex-wrap my-3 justify-content-center"
           direction="horizontal"
           gap={5}
         >
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
           <ImageCard />
           <ImageCard />
           <ImageCard />

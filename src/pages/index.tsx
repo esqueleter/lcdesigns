@@ -6,62 +6,49 @@ import ScrollTop from '../components/ScrollTop';
 import AboutMe from '../components/AboutMe';
 import Navigation from '../components/Navigation';
 import AboutEnterprise from '../components/AboutEnterprise';
+import styles from '../styles/Home.module.scss';
+
 const Home: NextPage = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [scrollBarState, setScrollBarState] = useState(false);
 
-  let doc = document.documentElement;
-  let w = window;
-
-  let prevScroll = w.scrollY || doc.scrollTop;
-  let curScroll;
-  let direction = 0;
-  let prevDirection = 0;
-
   const controlNavbar = () => {
-    const toggleHeader = (direction: number, curScroll: number) => {
-      if (direction === 2 && curScroll > 100) {
-        setShowNavbar(false);
-        setScrollBarState(true);
-        prevDirection = direction;
-      } else if (direction === 1) {
-        setShowNavbar(true);
-        setScrollBarState(false);
-        prevDirection = direction;
-      }
-    };
+    let scrollValue = document.querySelector('#home')?.scrollTop as number;
 
-    curScroll = w.scrollY || doc.scrollTop;
-    if (curScroll > prevScroll) {
-      direction = 2;
-    } else if (curScroll < prevScroll) {
-      direction = 1;
+    if (scrollValue >= 200) {
+      setShowNavbar(false);
+      setScrollBarState(true);
+    } else {
+      setShowNavbar(true);
+      setScrollBarState(false);
     }
-
-    if (direction !== prevDirection) {
-      toggleHeader(direction, curScroll);
-    }
-    prevScroll = curScroll;
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', controlNavbar);
+    document.querySelector('#home')?.addEventListener('scroll', controlNavbar);
+
     return () => {
-      window.removeEventListener('scroll', controlNavbar);
+      document
+        .querySelector('#home')
+        ?.removeEventListener('scroll', controlNavbar);
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <Navigation navbarState={showNavbar} />
-      <Welcome />
 
-      <Projects />
+      <div id="home" className={styles.home}>
+        <Welcome />
 
-      <AboutMe />
+        <Projects />
 
-      <AboutEnterprise />
+        <AboutMe />
+
+        <AboutEnterprise />
+      </div>
 
       <ScrollTop scrollBarState={scrollBarState} />
     </>

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { Link } from 'react-scroll';
+import { NavLink } from 'react-bootstrap';
 import arrowScrollTop from '../../assets/icons/arrowScrollTop.svg';
 import styles from './styles.module.scss';
 
@@ -9,18 +9,14 @@ const ScrollTop: NextPage<{ scrollBarState: boolean }> = ({
 }) => {
   return (
     <>
-      <Link
-        to="home"
-        spy={true}
-        smooth={true}
-        offset={-100}
-        duration={200}
+      <NavLink
+        href="#welcome"
         className={`${styles.scrollTop} ${
           scrollBarState && styles.on
         } rounded-circle bg-black m-3`}
       >
         <Image src={arrowScrollTop} alt="Scroll Top" layout="fill" />
-      </Link>
+      </NavLink>
     </>
   );
 };

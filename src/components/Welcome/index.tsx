@@ -3,13 +3,13 @@ import Image from 'next/image';
 import { Container, Stack } from 'react-bootstrap';
 import styles from './styles.module.scss';
 import arrowDown from '../../assets/icons/arrowDown.svg';
-import { Link } from 'react-scroll';
+import { NavLink } from 'react-bootstrap';
 import Layout from '../Layout';
 
 const Welcome: NextPage = () => {
   return (
-    <Layout>
-      <Container id="home" fluid className={styles.welcome}>
+    <Layout id="welcome">
+      <Container fluid className={`${styles.welcome} defaultContainer`}>
         <Stack
           gap={5}
           className={`${styles.stack} d-flex col-md-4 mx-auto mt-5 justify-content-center align-items-center`}
@@ -23,13 +23,7 @@ const Welcome: NextPage = () => {
 
           <h3 className="text-white">Design text wrapper</h3>
 
-          <Link
-            to="projects"
-            spy={false}
-            smooth={true}
-            offset={-40}
-            duration={200}
-          >
+          <NavLink href="#projects">
             <Image
               src={arrowDown}
               width="45px"
@@ -37,7 +31,7 @@ const Welcome: NextPage = () => {
               alt=""
               className={styles.arrowDown}
             />
-          </Link>
+          </NavLink>
         </Stack>
       </Container>
     </Layout>

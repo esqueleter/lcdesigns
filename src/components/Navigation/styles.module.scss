@@ -1,8 +1,16 @@
 .navigation{
     min-height: 10vh;
-    opacity: 0;
-    &.on{
-        opacity: 1;
-    }
     transition: opacity ease-in .5s;
+
+    *{
+        color: black!important
+    }
+
+    &.on{
+        *{
+            color: white!important;
+            
+        };
+        
+    }
 }

@@ -7,8 +7,8 @@ import Layout from '../Layout';
 
 const AboutMe: NextPage = () => {
   return (
-    <Layout>
-      <Container id="about-me">
+    <Layout id="about-me">
+      <Container className={'defaultContainer'}>
         <div>
           <p className="text-center">
             <Image
@@ -43,7 +43,7 @@ const AboutMe: NextPage = () => {
             <div className="text-right cursor-pointer">
               {SocialMedia.map((medias, index) => {
                 return medias.active ? (
-                  <span className="mx-2">
+                  <span className="mx-2" key={index}>
                     <Link href={medias.link}>
                       <Image
                         key={index}
