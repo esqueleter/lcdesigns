@@ -1,16 +1,49 @@
 .navigation{
-    min-height: 10vh;
-    transition: opacity ease-in .5s;
+    background-color: transparent;
+    padding: 0 1rem!important;
+    transition:  all 0.2s ease-in;
 
-    *{
-        color: black!important
-    }
+
+     .brandNavbar{
+         height: 60px;
+        
+        span{
+            color: white!important;
+            font-size: 36px;
+            line-height: 60px;
+            height: 100%;
+        }
+     }
+
+     .collapseNavbar{
+         font-family: VarelaRound;
+         .nav{
+             a{
+               
+               color: white!important;
+               font-size: 18px;
+             }
+         }
+     }
 
     &.on{
-        *{
-            color: white!important;
-            
-        };
-        
+       
+         .brandNavbar{
+            span{
+                color: black!important;
+            }
+         }
+    
+         .collapseNavbar{
+             .nav{
+                 a{
+                   color: black!important;
+                 }
+             }
+         }
+
+      
     }
+
+    
 }

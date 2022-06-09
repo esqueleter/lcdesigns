@@ -9,17 +9,17 @@ import AboutEnterprise from '../components/AboutEnterprise';
 import styles from '../styles/Home.module.scss';
 
 const Home: NextPage = () => {
-  const [showNavbar, setShowNavbar] = useState(true);
+  const [navbarTheme, setNavbarTheme] = useState(false);
   const [scrollBarState, setScrollBarState] = useState(false);
 
   const controlNavbar = () => {
     let scrollValue = document.querySelector('#home')?.scrollTop as number;
 
     if (scrollValue >= 200) {
-      setShowNavbar(false);
+      setNavbarTheme(true);
       setScrollBarState(true);
     } else {
-      setShowNavbar(true);
+      setNavbarTheme(false);
       setScrollBarState(false);
     }
   };
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Navigation navbarState={showNavbar} />
+      <Navigation navbarState={navbarTheme} />
 
       <div id="home" className={styles.home}>
         <Welcome />

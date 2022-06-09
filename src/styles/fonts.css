@@ -1,0 +1,27 @@
+
+
+@font-face{
+    font-family: Mieghommel;
+    src: url("../assets/fonts/Mieghommel.ttf");
+  }
+
+@font-face{
+    font-family: VarelaRound;
+    src: url("../assets/fonts/VarelaRound.ttf");
+}
+
+@font-face{
+    font-family: Raleway;
+    src: url("../assets/fonts/Raleway.ttf");
+}
+
+
+.fontBrand{
+    font-family: Mieghommel
+}
+.font-primary{
+    font-family: VarelaRound;
+}
+.font-secondary{
+    font-family: Raleway;
+}

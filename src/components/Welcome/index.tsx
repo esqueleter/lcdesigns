@@ -9,7 +9,10 @@ import Layout from '../Layout';
 const Welcome: NextPage = () => {
   return (
     <Layout id="welcome">
-      <Container fluid className={`${styles.welcome} defaultContainer`}>
+      <Container
+        fluid
+        className={`${styles.welcome} defaultContainer font-primary`}
+      >
         <Stack
           gap={5}
           className={`${styles.stack} d-flex col-md-4 mx-auto mt-5 justify-content-center align-items-center`}
@@ -26,8 +29,8 @@ const Welcome: NextPage = () => {
           <NavLink href="#projects">
             <Image
               src={arrowDown}
-              width="45px"
-              height="45px"
+              width="65px"
+              height="65px"
               alt=""
               className={styles.arrowDown}
             />

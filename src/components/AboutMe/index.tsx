@@ -21,12 +21,12 @@ const AboutMe: NextPage = () => {
           </p>
 
           <Stack gap={5} className="w-75 mx-auto my-4">
-            <Stack gap={2} className="text-center">
+            <Stack gap={2} className="text-center font-primary">
               <h3>Nome Designer</h3>
               <h5>Profissão designer</h5>
             </Stack>
 
-            <p className="text-left">
+            <p className="text-left font-secondary font-italic">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Voluptatibus expedita nostrum neque animi maxime, recusandae
               tempora! Aut minima obcaecati omnis ratione, a, quasi atque
