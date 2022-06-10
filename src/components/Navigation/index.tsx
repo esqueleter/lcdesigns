@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import { Navbar, Nav } from 'react-bootstrap';
-import logo from '../../assets/icons/duckLogo.svg';
+import logo from '../../assets/icons/logoLCDesigns.svg';
 import styles from './styles.module.scss';
 
 const Navigation: NextPage<{ navbarState: boolean }> = ({ navbarState }) => {
@@ -25,15 +25,15 @@ const Navigation: NextPage<{ navbarState: boolean }> = ({ navbarState }) => {
           className={`${styles.collapseNavbar} justify-content-end me-4`}
         >
           <Nav className={styles.nav}>
-            <Nav.Link href="#welcome">Ínicio</Nav.Link>
+            <Nav.Link href="#welcome">ínicio</Nav.Link>
 
-            <Nav.Link href="#projects">Projetos</Nav.Link>
+            <Nav.Link href="#projects">projetos</Nav.Link>
 
-            <Nav.Link href="#about-me">Designer</Nav.Link>
+            <Nav.Link href="#about-me">designer</Nav.Link>
 
-            <Nav.Link href="#about-enterprise">Empresa</Nav.Link>
+            <Nav.Link href="#about-enterprise">empresa</Nav.Link>
 
-            <Nav.Link href="#contact-me">Contato</Nav.Link>
+            <Nav.Link href="#contact-me">contato</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

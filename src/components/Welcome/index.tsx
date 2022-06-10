@@ -14,7 +14,7 @@ const Welcome: NextPage = () => {
         className={`${styles.welcome} defaultContainer font-primary`}
       >
         <Stack
-          gap={5}
+          gap={3}
           className={`${styles.stack} d-flex col-md-4 mx-auto mt-5 justify-content-center align-items-center`}
         >
           <Image
@@ -24,7 +24,12 @@ const Welcome: NextPage = () => {
             height={350}
           />
 
-          <h3 className="text-white">Design text wrapper</h3>
+          <h4
+            style={{ lineHeight: '30px', marginTop: '1rem', fontSize: '20px' }}
+            className="text-white"
+          >
+            {'scrolla pra baixo :)'}
+          </h4>
 
           <NavLink href="#projects">
             <Image

@@ -34,7 +34,7 @@ const AboutEnterprise: NextPage = () => {
               quasi atque similique mollitia, et fugit minus! Laudantium.
             </p>
 
-            <div className="text-right">
+            <div className={styles.socialMedia}>
               {SocialMedia.map((medias, index) => {
                 return medias.active ? (
                   <span key={index} className={`${styles.medias} mx-2`}>

@@ -7,7 +7,12 @@
         width: 75%;
         height: 200px;
     }
-    .medias{
-        cursor: pointer;
+    .socialMedia{
+        display: flex;
+        justify-content: flex-end;
+        .medias{
+            cursor: pointer;
+        }
     }
+    
 }

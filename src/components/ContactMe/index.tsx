@@ -1,67 +1,111 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Container, Stack } from 'react-bootstrap';
-import { SocialMedia } from '../AboutMe/context';
+import { Container, Stack, Form, Button } from 'react-bootstrap';
+import { Controller, useForm } from 'react-hook-form';
 import Layout from '../Layout';
 import styles from './styles.module.scss';
+import sendIcon from '../../assets/icons/sendIcon.svg';
+import blackPuma from '../../assets/icons/blackPuma.svg';
 
 const ContactMe: NextPage = () => {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+    getValues,
+  } = useForm();
+
+  const submitHandler = () => {};
+
   return (
     <Layout id="contact-me">
-      <Container className={`${styles.contactme} defaultContainer`}>
-        <div>
-          <p className="text-center">
-            <Image
-              src="https://avatars.githubusercontent.com/u/50511799?s=400&amp;u=3c0bb62e2e8db042df347034b86f4fa89977e2e0&amp;v=4"
-              alt="Designer"
-              width="160px"
-              height="160px"
-              className="rounded-circle"
-            />
-          </p>
+      <Container fluid className={`${styles.contactme} defaultContainer`}>
+        <div className={styles.bgIcon}>
+          <div className={styles.iconLeft}>
+            <Image src={blackPuma} alt="Black Puma Icon" layout="responsive" />
+          </div>
 
-          <Stack gap={5} className="w-75 mx-auto my-4">
-            <Stack gap={2} className="text-center">
-              <h3>Nome Designer</h3>
-              <h5>Profissão designer</h5>
-            </Stack>
-
-            <p className="text-left">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Voluptatibus expedita nostrum neque animi maxime, recusandae
-              tempora! Aut minima obcaecati omnis ratione, a, quasi atque
-              similique mollitia, et fugit minus! Laudantium. Lorem ipsum dolor
-              sit, amet consectetur adipisicing elit. Voluptatibus expedita
-              nostrum neque animi maxime, recusandae tempora! Aut minima
-              obcaecati omnis ratione, a, quasi atque similique mollitia, et
-              fugit minus! Laudantium. Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit. Voluptatibus expedita nostrum neque animi
-              maxime, recusandae tempora! Aut minima obcaecati omnis ratione, a,
-              quasi atque similique mollitia, et fugit minus! Laudantium.
-            </p>
-
-            <div className="text-right cursor-pointer">
-              {SocialMedia.map((medias, index) => {
-                return medias.active ? (
-                  <span className="mx-2" key={index}>
-                    <Link href={medias.link}>
-                      <Image
-                        key={index}
-                        src={medias.badge}
-                        alt={medias.name}
-                        width="34px"
-                        height="34px"
-                      />
-                    </Link>
-                  </span>
-                ) : (
-                  false
-                );
-              })}
-            </div>
-          </Stack>
+          <div className={styles.iconRight}>
+            <Image src={blackPuma} alt="Black Puma Icon" layout="responsive" />
+          </div>
         </div>
+        <Form
+          onSubmit={handleSubmit(submitHandler)}
+          className={styles.defaultForm}
+        >
+          <div className={styles.formHeader}>
+            <h1>Entre em contato!</h1>
+            <span>
+              Se está com alguma dúvida ou deseja me contratar, preencha os
+              campos que entrarei em contato o mais rápido possível!
+            </span>
+          </div>
+
+          <div className={styles.userInfoInputs}>
+            <Controller
+              name="formUsername"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <>
+                  <Form.Control
+                    type="text"
+                    placeholder="Seu nome"
+                    {...field}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Insira seu nome!
+                  </Form.Control.Feedback>
+                </>
+              )}
+            ></Controller>
+
+            <Controller
+              name="formEmail"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <>
+                  <Form.Control
+                    type="email"
+                    placeholder="Seu email"
+                    {...field}
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Email inválido!
+                  </Form.Control.Feedback>
+                </>
+              )}
+            ></Controller>
+          </div>
+
+          <Controller
+            name="formMessage"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <>
+                <Form.Control
+                  className={styles.messageInput}
+                  type="text"
+                  as="textarea"
+                  placeholder="Sua mensagem..."
+                  {...field}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Insira sua mensagem!
+                </Form.Control.Feedback>
+              </>
+            )}
+          ></Controller>
+
+          <Button type="submit">
+            <Image src={sendIcon} alt="Enviar" layout="responsive" />
+          </Button>
+        </Form>
       </Container>
     </Layout>
   );

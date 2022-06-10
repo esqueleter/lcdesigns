@@ -1,3 +1,108 @@
 .contactme{
+    margin-top: 3rem;
+    justify-content: center;
     height: 100%;
+    position: relative;
+
+    .bgIcon{
+        position: absolute;
+        display: flex;
+        width: 85%;
+        justify-content: space-between;
+        height: 100%;
+        align-items: flex-end;
+        margin-bottom: 15rem;
+        z-index: 0;
+        .iconRight{
+            position: relative;
+            transform: scaleX(-1);
+            width: 250px;
+            height: 250px;
+        }
+
+        .iconLeft{
+            position: relative;
+            width: 250px;
+            height: 250px;
+        }
+        
+    }
+    
+    .defaultForm{
+        font-family: VarelaRound;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        z-index: 1;
+        
+        .formHeader{
+            width: 90%;
+            margin: 0 auto;
+            h1{
+                text-align: center;
+                font-size: 28px;
+            }
+            span{
+                font-size: 12px;
+            }
+        }
+
+        .userInfoInputs{
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            margin: 0 auto;
+            input{
+                width: 300px;   
+                height: 60px;
+                border: 1px solid #212529;
+                font-size: 17px;
+                border-radius: 15px;
+                &:focus{
+                    box-shadow: 0px 0px 15px black;
+                }
+            }   
+          
+          
+        }
+        .messageInput{
+            resize: none;
+            width: 800px;
+            height: 200px;
+            border: 1px solid #212529;
+            font-size: 17px;
+            border-radius: 15px;
+            &:focus{
+                box-shadow: 0px 0px 15px black;
+            }
+        }
+
+        button{
+            background-color: transparent;
+            border: 1px solid #212529;
+            border-radius: 50px;
+            font-size: 18px;
+            text-transform: uppercase;
+            height: 64px;
+            width: 64px;
+            margin: 0 auto;
+            span{
+                left: -2px;
+            }
+            img{
+                filter: invert(13%) sepia(10%) saturate(618%) hue-rotate(168deg) brightness(92%) contrast(96%);
+            }
+            
+            &:hover{
+                transform: scale(1.1);
+                background-color: #212529;
+                img{
+                    filter: invert(100%) sepia(12%) saturate(7459%) hue-rotate(206deg) brightness(116%) contrast(95%);
+                }
+            }
+
+            transition: all 0.2s ease-in-out;
+            
+        }
+    }
 }

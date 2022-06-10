@@ -49,17 +49,10 @@ const Projects: NextPage = () => {
           </SwiperSlide>
         </Swiper>
 
-        <Button
-          className="d-flex mx-auto my-4"
-          style={{
-            backgroundColor: '#212529',
-            borderColor: '#212529',
-            borderRadius: '2px',
-          }}
-        >
+        <Button className={`${styles.seeMore} d-flex mx-auto my-4`}>
           <Link href="https://www.instagram.com/lcdesigns.art/" passHref>
-            <a target="_blank" className={styles.seeMore}>
-              Todos os projetos <span>{'>'}</span>
+            <a target="_blank">
+              todos os projetos <span>{'>>'}</span>
             </a>
           </Link>
         </Button>

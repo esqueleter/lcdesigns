@@ -26,7 +26,7 @@ const AboutMe: NextPage = () => {
               <h5>Profissão designer</h5>
             </Stack>
 
-            <p className="text-left font-secondary font-italic">
+            <p className="text-left font-secondary">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Voluptatibus expedita nostrum neque animi maxime, recusandae
               tempora! Aut minima obcaecati omnis ratione, a, quasi atque
