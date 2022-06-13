@@ -1,27 +1,66 @@
 .navigation{
-    background-color: transparent;
-    padding: 0 1rem!important;
+   
     transition:  all 0.2s ease-in;
 
+    .navHeader{
+        background-color: transparent;
+        display: flex;
+        padding: 0 1rem;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        a{
+            padding: 0!important;
+        }
 
-     .brandNavbar{
-         height: 60px;
-        
-        span{
+        .brandNavbar{
+            margin: 0!important;
+            height: 60px;
+           
+           
+        }
+
+        .brandTitle{
             color: white!important;
             font-size: 36px;
             line-height: 60px;
             height: 100%;
         }
-     }
-
+        .toggleNav{
+            border: none;
+            height: 50px;
+            filter: invert(99%) sepia(72%) saturate(2%) hue-rotate(94deg) brightness(114%) contrast(100%);;
+            &:focus{
+               box-shadow: none;
+            }
+        }
+    }
+    
+   
      .collapseNavbar{
-         font-family: VarelaRound;
+        font-family: VarelaRound;
+        height: 100vh;
+        justify-content: center;
+        width: 100vw;
+        background-color: rgba(33, 37, 41, .98);
+       
+        &.show{
+            .nav{
+                a{
+                color: red!important;
+                }
+            }
+        }
+
          .nav{
+            gap: 40px;
+            padding-top: 5rem;
+            gap: 5rem;
              a{
-               
+               text-align: center;
                color: white!important;
-               font-size: 18px;
+               font-size: 24px;
+              
                cursor: pointer;
                 &::after {
                         display:block;
@@ -47,19 +86,23 @@
 
     &.on{
        
-         .brandNavbar{
-            span{
+        .navHeader{
+            background-color: #212529;
+
+        
+            .brandTitle{
                 color: black!important;
             }
-         }
+        }
+         
     
-         .collapseNavbar{
-             .nav{
-                 a{
-                   color: black!important;
-                 }
-             }
-         }
+        .collapseNavbar{
+            .nav{
+                a{
+                color: black!important;
+                }
+            }
+        }
 
       
     }

@@ -7,7 +7,6 @@ import AboutMe from '../components/AboutMe';
 import Navigation from '../components/Navigation';
 import AboutEnterprise from '../components/AboutEnterprise';
 import ContactMe from '../components/ContactMe';
-Footer;
 import Footer from '../components/Footer';
 import styles from '../styles/Home.module.scss';
 
