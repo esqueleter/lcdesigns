@@ -26,6 +26,14 @@ const Projects: NextPage = () => {
           modules={[Autoplay]}
           style={{
             maxWidth: '1000px',
+            overflow: 'hidden',
+          }}
+          breakpoints={{
+            768: {
+              width: 768,
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+            },
           }}
         >
           <SwiperSlide>

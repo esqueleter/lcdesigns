@@ -1,22 +1,21 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { Container, Stack } from 'react-bootstrap';
-import styles from './styles.module.scss';
-import arrowDown from '../../assets/icons/arrowDown.svg';
-import { NavLink } from 'react-bootstrap';
+import Link from 'next/link';
+import { ImArrowDown2 } from 'react-icons/im';
 import Layout from '../Layout';
+import {
+  WelcomeContainer,
+  WelcomeVStack,
+  WelcomeText,
+  WelcomeButton,
+  WelcomeIcon,
+} from './styles';
 
 const Welcome: NextPage = () => {
   return (
     <Layout id="welcome">
-      <Container
-        fluid
-        className={`${styles.welcome} defaultContainer font-primary`}
-      >
-        <Stack
-          gap={3}
-          className={`${styles.stack} d-flex col-md-4 mx-auto mt-5 justify-content-center align-items-center`}
-        >
+      <WelcomeContainer>
+        <WelcomeVStack>
           <Image
             src="https://static.tumblr.com/anxftez/F4tq7ucmf/ezgif-5-4c3c2420295d.gif"
             alt="Logo-gif"
@@ -24,24 +23,15 @@ const Welcome: NextPage = () => {
             height={350}
           />
 
-          <h4
-            style={{ lineHeight: '30px', marginTop: '1rem', fontSize: '20px' }}
-            className="text-white"
-          >
-            {'scrolla pra baixo :)'}
-          </h4>
+          <WelcomeText>{'scrolla pra baixo :)'}</WelcomeText>
 
-          <NavLink href="#projects">
-            <Image
-              src={arrowDown}
-              width="65px"
-              height="65px"
-              alt=""
-              className={styles.arrowDown}
-            />
-          </NavLink>
-        </Stack>
-      </Container>
+          <Link href="#projects">
+            <WelcomeButton>
+              <WelcomeIcon as={ImArrowDown2} />
+            </WelcomeButton>
+          </Link>
+        </WelcomeVStack>
+      </WelcomeContainer>
     </Layout>
   );
 };

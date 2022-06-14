@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
+import { HomeContainer } from '../styles/styles.home';
 import Welcome from '../components/Welcome';
 import Projects from '../components/Projects';
 import ScrollTop from '../components/ScrollTop';
@@ -8,7 +9,6 @@ import Navigation from '../components/Navigation';
 import AboutEnterprise from '../components/AboutEnterprise';
 import ContactMe from '../components/ContactMe';
 import Footer from '../components/Footer';
-import styles from '../styles/Home.module.scss';
 
 const Home: NextPage = () => {
   const [navbarTheme, setNavbarTheme] = useState(false);
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
     <>
       <Navigation navbarState={navbarTheme} />
 
-      <div id="home" className={styles.home}>
+      <HomeContainer id="home">
         <Welcome />
 
         <Projects />
@@ -68,7 +68,7 @@ const Home: NextPage = () => {
 
         <ContactMe />
         <Footer />
-      </div>
+      </HomeContainer>
 
       <ScrollTop scrollBarState={scrollBarState} />
     </>

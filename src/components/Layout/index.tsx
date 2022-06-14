@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
-import { StyleHTMLAttributes } from 'react';
-import styles from './styles.module.scss';
+import { LayoutSection, LayoutAnchor } from './styles';
 
 type ILayout = {
   style?: any;
@@ -11,10 +10,10 @@ type ILayout = {
 const Layout: NextPage<ILayout> = ({ children, id, style }) => {
   return (
     <>
-      <section style={style} className={styles.layout}>
-        <a className={styles.anchor} id={id}></a>
+      <LayoutSection style={style}>
+        <LayoutAnchor id={id} />
         {children}
-      </section>
+      </LayoutSection>
     </>
   );
 };

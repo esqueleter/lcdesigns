@@ -7,20 +7,16 @@ import {
   NavbarHeader,
   NavbarLogo,
   NavbarTitle,
-  NavbarList,
-  NavbarItem,
   NavbarButton,
   NavbarIcon,
-  NavbarOverlay,
-  NavbarDrawer,
-  NavbarDrawerContent,
 } from './styles';
+import MobileNav from './MobileNav';
 import { BiMenu, BiX } from 'react-icons/bi';
 import { useRef } from 'react';
 import { useDisclosure } from '@chakra-ui/react';
 
 const Navigation: NextPage<{ navbarState: boolean }> = ({ navbarState }) => {
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen, onClose, onToggle } = useDisclosure();
   const btnRef = useRef() as any;
 
   return (
@@ -33,41 +29,19 @@ const Navigation: NextPage<{ navbarState: boolean }> = ({ navbarState }) => {
             </NavbarLogo>
           </Link>
 
-          <NavbarTitle variant={isOpen ? 'dark' : 'light'}>
-            LC Designs
-          </NavbarTitle>
+          <NavbarTitle>LC Designs</NavbarTitle>
 
           <NavbarButton ref={btnRef} onClick={onToggle}>
             <NavbarIcon as={isOpen ? BiX : BiMenu} />
           </NavbarButton>
         </NavbarHeader>
 
-        <NavbarDrawer
+        <MobileNav
           isOpen={isOpen}
-          placement="left"
+          placement={'left'}
           onClose={onClose}
           finalFocusRef={btnRef}
-        >
-          <NavbarDrawerContent>
-            <NavbarList>
-              <NavbarItem onClick={onClose}>
-                <Link href="#welcome">ínicio</Link>
-              </NavbarItem>
-              <NavbarItem onClick={onClose}>
-                <Link href="#projects">projetos</Link>
-              </NavbarItem>
-              <NavbarItem onClick={onClose}>
-                <Link href="#about-me">designer</Link>
-              </NavbarItem>
-              <NavbarItem onClick={onClose}>
-                <Link href="#about-enterprise">empresa</Link>
-              </NavbarItem>
-              <NavbarItem onClick={onClose}>
-                <Link href="#contact-me">contato</Link>
-              </NavbarItem>
-            </NavbarList>
-          </NavbarDrawerContent>
-        </NavbarDrawer>
+        />
       </Navbar>
     </>
   );

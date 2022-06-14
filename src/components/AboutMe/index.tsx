@@ -1,67 +1,63 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Container, Stack } from 'react-bootstrap';
 import { SocialMedia } from './context';
 import Layout from '../Layout';
+import {
+  AboutMeContainer,
+  AboutMeAvatarHolder,
+  AboutMeStack,
+  AboutMeTextWrapper,
+  AboutMeText,
+  AboutMeSocialMediaWrapper,
+  AboutMeSocialMediaItem,
+} from './styles';
 
 const AboutMe: NextPage = () => {
   return (
     <Layout id="about-me">
-      <Container className={'defaultContainer'}>
-        <div>
-          <p className="text-center">
+      <AboutMeContainer>
+        <AboutMeStack>
+          <AboutMeAvatarHolder>
             <Image
               src="https://avatars.githubusercontent.com/u/50511799?s=400&amp;u=3c0bb62e2e8db042df347034b86f4fa89977e2e0&amp;v=4"
               alt="Designer"
-              width="160px"
-              height="160px"
-              className="rounded-circle"
+              layout="fill"
             />
-          </p>
+          </AboutMeAvatarHolder>
 
-          <Stack gap={5} className="w-75 mx-auto my-4">
-            <Stack gap={2} className="text-center font-primary">
-              <h3>Nome Designer</h3>
-              <h5>Profissão designer</h5>
-            </Stack>
+          <AboutMeTextWrapper>
+            <AboutMeText variant="title">Nome Designer</AboutMeText>
+            <AboutMeText variant="subtitle">Profissão designer</AboutMeText>
+          </AboutMeTextWrapper>
+        </AboutMeStack>
 
-            <p className="text-left font-secondary">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Voluptatibus expedita nostrum neque animi maxime, recusandae
-              tempora! Aut minima obcaecati omnis ratione, a, quasi atque
-              similique mollitia, et fugit minus! Laudantium. Lorem ipsum dolor
-              sit, amet consectetur adipisicing elit. Voluptatibus expedita
-              nostrum neque animi maxime, recusandae tempora! Aut minima
-              obcaecati omnis ratione, a, quasi atque similique mollitia, et
-              fugit minus! Laudantium. Lorem ipsum dolor sit, amet consectetur
-              adipisicing elit. Voluptatibus expedita nostrum neque animi
-              maxime, recusandae tempora! Aut minima obcaecati omnis ratione, a,
-              quasi atque similique mollitia, et fugit minus! Laudantium.
-            </p>
+        <AboutMeStack>
+          <AboutMeText variant="longText">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Voluptatibus expedita nostrum neque animi maxime, recusandae
+            tempora! Aut minima obcaecati omnis ratione, a, quasi atque
+            similique mollitia, et fugit minus! Laudantium. Lorem ipsum dolor
+            sit, amet consectetur adipisicing elit. Voluptatibus expedita
+            nostrum neque animi maxime, recusandae tempora! Aut minima obcaecati
+            omnis ratione, a, quasi atque similique mollitia, et fugit minus!
+          </AboutMeText>
+        </AboutMeStack>
 
-            <div className="text-right cursor-pointer">
-              {SocialMedia.map((medias, index) => {
-                return medias.active ? (
-                  <span className="mx-2" key={index}>
-                    <Link href={medias.link}>
-                      <Image
-                        key={index}
-                        src={medias.badge}
-                        alt={medias.name}
-                        width="34px"
-                        height="34px"
-                      />
-                    </Link>
-                  </span>
-                ) : (
-                  false
-                );
-              })}
-            </div>
-          </Stack>
-        </div>
-      </Container>
+        <AboutMeStack>
+          <AboutMeSocialMediaWrapper>
+            {SocialMedia.map((medias, index) => {
+              return medias.active ? (
+                <Link href={medias.link} key={index}>
+                  <AboutMeSocialMediaItem as={medias.badge} />
+                </Link>
+              ) : (
+                false
+              );
+            })}
+          </AboutMeSocialMediaWrapper>
+        </AboutMeStack>
+      </AboutMeContainer>
     </Layout>
   );
 };

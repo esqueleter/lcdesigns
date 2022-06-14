@@ -1,11 +1,20 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
-import { Container, Stack, Form, Button } from 'react-bootstrap';
 import { Controller, useForm } from 'react-hook-form';
 import Layout from '../Layout';
 import styles from './styles.module.scss';
-import sendIcon from '../../assets/icons/sendIcon.svg';
-import blackPuma from '../../assets/icons/blackPuma.svg';
+import {
+  ContactMeContainer,
+  ContactForm,
+  ContactFormHeader,
+  ContactFormText,
+  ContactFormInputWrapper,
+  ContactFormInput,
+  ContactFormInputMessage,
+  ContactButton,
+  ContactIcon,
+} from './styles';
+
+import { IoIosPaperPlane } from 'react-icons/io';
 
 const ContactMe: NextPage = () => {
   const {
@@ -19,8 +28,8 @@ const ContactMe: NextPage = () => {
 
   return (
     <Layout id="contact-me">
-      <Container fluid className={`${styles.contactme} defaultContainer`}>
-        <div className={styles.bgIcon}>
+      <ContactMeContainer>
+        {/* <div className={styles.bgIcon}>
           <div className={styles.iconLeft}>
             <Image src={blackPuma} alt="Black Puma Icon" layout="responsive" />
           </div>
@@ -28,35 +37,32 @@ const ContactMe: NextPage = () => {
           <div className={styles.iconRight}>
             <Image src={blackPuma} alt="Black Puma Icon" layout="responsive" />
           </div>
-        </div>
-        <Form
+        </div> */}
+        <ContactForm
           onSubmit={handleSubmit(submitHandler)}
           className={styles.defaultForm}
         >
-          <div className={styles.formHeader}>
-            <h1>Entre em contato!</h1>
-            <span>
+          <ContactFormHeader>
+            <ContactFormText variant="title">Entre em contato!</ContactFormText>
+            <ContactFormText variant="subtitle">
               Se está com alguma dúvida ou deseja me contratar, preencha os
               campos que entrarei em contato o mais rápido possível!
-            </span>
-          </div>
+            </ContactFormText>
+          </ContactFormHeader>
 
-          <div className={styles.userInfoInputs}>
+          <ContactFormInputWrapper>
             <Controller
               name="formUsername"
               control={control}
               defaultValue=""
               render={({ field }) => (
                 <>
-                  <Form.Control
+                  <ContactFormInput
                     type="text"
                     placeholder="Seu nome"
                     {...field}
                     required
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Insira seu nome!
-                  </Form.Control.Feedback>
                 </>
               )}
             ></Controller>
@@ -67,46 +73,38 @@ const ContactMe: NextPage = () => {
               defaultValue=""
               render={({ field }) => (
                 <>
-                  <Form.Control
+                  <ContactFormInput
                     type="email"
                     placeholder="Seu email"
                     {...field}
                     required
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Email inválido!
-                  </Form.Control.Feedback>
                 </>
               )}
             ></Controller>
-          </div>
+            <Controller
+              name="formMessage"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <>
+                  <ContactFormInputMessage
+                    className={styles.messageInput}
+                    type="text"
+                    placeholder="Sua mensagem..."
+                    {...field}
+                    required
+                  />
+                </>
+              )}
+            ></Controller>
+          </ContactFormInputWrapper>
 
-          <Controller
-            name="formMessage"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <>
-                <Form.Control
-                  className={styles.messageInput}
-                  type="text"
-                  as="textarea"
-                  placeholder="Sua mensagem..."
-                  {...field}
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Insira sua mensagem!
-                </Form.Control.Feedback>
-              </>
-            )}
-          ></Controller>
-
-          <Button type="submit">
-            <Image src={sendIcon} alt="Enviar" layout="responsive" />
-          </Button>
-        </Form>
-      </Container>
+          <ContactButton type="submit">
+            <ContactIcon as={IoIosPaperPlane} />
+          </ContactButton>
+        </ContactForm>
+      </ContactMeContainer>
     </Layout>
   );
 };
