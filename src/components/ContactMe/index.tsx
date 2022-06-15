@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import { Controller, useForm } from 'react-hook-form';
 import Layout from '../Layout';
-import styles from './styles.module.scss';
 import {
   ContactMeContainer,
   ContactForm,
@@ -12,7 +11,12 @@ import {
   ContactFormInputMessage,
   ContactButton,
   ContactIcon,
+  ContactBgIconWrapper,
+  ContactBgIcon,
 } from './styles';
+
+import Image from 'next/image';
+import blackPuma from '../../assets/icons/blackPuma.svg';
 
 import { IoIosPaperPlane } from 'react-icons/io';
 
@@ -29,19 +33,17 @@ const ContactMe: NextPage = () => {
   return (
     <Layout id="contact-me">
       <ContactMeContainer>
-        {/* <div className={styles.bgIcon}>
-          <div className={styles.iconLeft}>
+        <ContactBgIconWrapper>
+          <ContactBgIcon>
             <Image src={blackPuma} alt="Black Puma Icon" layout="responsive" />
-          </div>
+          </ContactBgIcon>
 
-          <div className={styles.iconRight}>
+          <ContactBgIcon style={{ transform: 'scaleX(-1)' }}>
             <Image src={blackPuma} alt="Black Puma Icon" layout="responsive" />
-          </div>
-        </div> */}
-        <ContactForm
-          onSubmit={handleSubmit(submitHandler)}
-          className={styles.defaultForm}
-        >
+          </ContactBgIcon>
+        </ContactBgIconWrapper>
+
+        <ContactForm onSubmit={handleSubmit(submitHandler)}>
           <ContactFormHeader>
             <ContactFormText variant="title">Entre em contato!</ContactFormText>
             <ContactFormText variant="subtitle">
@@ -89,7 +91,6 @@ const ContactMe: NextPage = () => {
               render={({ field }) => (
                 <>
                   <ContactFormInputMessage
-                    className={styles.messageInput}
                     type="text"
                     placeholder="Sua mensagem..."
                     {...field}

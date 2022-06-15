@@ -1,22 +1,19 @@
 import 'swiper/css';
-
 import type { NextPage } from 'next';
-import { Container, Stack, Button } from 'react-bootstrap';
 import ImageCard from '../ImageCard';
 import Link from 'next/link';
 import Layout from '../Layout';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
-import styles from './styles.module.scss';
+import { ProjectContainer, ProjectButton } from './styles';
+import { HiChevronDoubleRight } from 'react-icons/hi';
 
 const Projects: NextPage = () => {
   return (
     <Layout id="projects">
-      <Container fluid className={`font-primary defaultContainer`}>
+      <ProjectContainer>
         <Swiper
-          spaceBetween={30}
-          slidesPerView={3}
-          slidesPerGroup={3}
+          slidesPerView={1}
           centeredSlides={true}
           loop={true}
           autoplay={{
@@ -26,7 +23,7 @@ const Projects: NextPage = () => {
           modules={[Autoplay]}
           style={{
             maxWidth: '1000px',
-            overflow: 'hidden',
+            width: '100%',
           }}
           breakpoints={{
             768: {
@@ -39,32 +36,18 @@ const Projects: NextPage = () => {
           <SwiperSlide>
             <ImageCard />
           </SwiperSlide>
-          <SwiperSlide>
-            <ImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ImageCard />
-          </SwiperSlide>
 
-          <SwiperSlide>
-            <ImageCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ImageCard />
-          </SwiperSlide>
           <SwiperSlide>
             <ImageCard />
           </SwiperSlide>
         </Swiper>
 
-        <Button className={`${styles.seeMore} d-flex mx-auto my-4`}>
-          <Link href="https://www.instagram.com/lcdesigns.art/" passHref>
-            <a target="_blank">
-              todos os projetos <span>{'>>'}</span>
-            </a>
+        <ProjectButton rightIcon={<HiChevronDoubleRight />}>
+          <Link href="https://www.instagram.com/lcdesigns.art/">
+            todos os projetos
           </Link>
-        </Button>
-      </Container>
+        </ProjectButton>
+      </ProjectContainer>
     </Layout>
   );
 };

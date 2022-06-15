@@ -29,7 +29,7 @@ const Navigation: NextPage<{ navbarState: boolean }> = ({ navbarState }) => {
             </NavbarLogo>
           </Link>
 
-          <NavbarTitle>LC Designs</NavbarTitle>
+          <NavbarTitle variant="dark">LC Designs</NavbarTitle>
 
           <NavbarButton ref={btnRef} onClick={onToggle}>
             <NavbarIcon as={isOpen ? BiX : BiMenu} />

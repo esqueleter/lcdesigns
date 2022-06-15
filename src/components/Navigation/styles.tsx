@@ -1,5 +1,7 @@
+import type { ComponentStyleConfig } from '@chakra-ui/theme';
 import { Text, Box, Flex, chakra } from '@chakra-ui/react';
 import { DefaultIcon, DefaultButton } from '../../styles/defaultComponents';
+import { StyleFunctionProps } from '@chakra-ui/theme-tools';
 
 const Navbar = chakra(Box, {
   baseStyle: {
@@ -23,18 +25,6 @@ const NavbarHeader = chakra(Flex, {
     padding: '0 1rem',
     alignItems: 'center',
   },
-  variants: {
-    dark: {
-      backgroundColor: '#212529',
-    },
-    light: {
-      backgroundColor: '#f8f9fa',
-    },
-  },
-
-  defaultProps: {
-    variant: 'dark',
-  },
 });
 
 const NavbarLogo = chakra(Box, {
@@ -50,21 +40,7 @@ const NavbarTitle = chakra(Text, {
     fontWeight: '500',
     fontFamily: 'Mieghommel',
     margin: '0',
-    color: 'blue',
-  },
-
-  variants: {
-    dark: {
-      color: 'white',
-    },
-
-    light: {
-      color: 'black',
-    },
-  },
-
-  defaultProps: {
-    variant: 'dark',
+    color: 'white',
   },
 });
 

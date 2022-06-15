@@ -20,7 +20,7 @@ const WelcomeVStack = chakra(VStack, {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '5px auto 0 auto',
+    margin: '2rem auto 0 auto',
     height: '100vh',
     gap: '2rem',
   },

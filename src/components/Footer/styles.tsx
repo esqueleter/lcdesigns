@@ -14,7 +14,7 @@ const FooterContainer = chakra(DefaultContainer, {
 const FooterHStack = chakra(HStack, {
   baseStyle: {
     width: '90%',
-    margin: '0 auto 2.5rem auto',
+    margin: '0 auto 1.5rem auto',
     gap: '2rem',
     flexWrap: 'wrap',
   },

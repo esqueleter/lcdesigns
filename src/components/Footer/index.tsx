@@ -1,9 +1,7 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Container, Stack, ListGroup } from 'react-bootstrap';
 import Layout from '../Layout';
-import styles from './styles.module.scss';
 import blackTiger from '../../assets/icons/blackTiger.svg';
 import {
   FooterContainer,
@@ -23,7 +21,7 @@ const Footer: NextPage = () => {
           <FooterVStack>
             <FooterTitle>Menu</FooterTitle>
 
-            <FooterList className={styles.listGroup}>
+            <FooterList>
               <FooterListItem>
                 <Link href="#welcome">ínicio</Link>
               </FooterListItem>
@@ -41,7 +39,7 @@ const Footer: NextPage = () => {
 
           <FooterVStack>
             <FooterTitle>Redes sociais</FooterTitle>
-            <FooterList className={styles.listGroup}>
+            <FooterList>
               <FooterListItem>
                 <Link href="#instagram">instagram</Link>
               </FooterListItem>
@@ -56,13 +54,13 @@ const Footer: NextPage = () => {
 
           <FooterVStack>
             <FooterTitle>Entre em contato</FooterTitle>
-            <FooterList className={styles.listGroup}>
+            <FooterList>
               <FooterListItem>(11) 12345-6789</FooterListItem>
               <FooterListItem>lcdesigns@gmail.com</FooterListItem>
             </FooterList>
           </FooterVStack>
 
-          {/* <div className={styles.iconTiger}>
+          {/* <div >
             <Image src={blackTiger} alt="Tigre Preto" layout="responsive" />
           </div> */}
         </FooterHStack>

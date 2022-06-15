@@ -29,6 +29,7 @@ const ContactForm = chakra(FormControl, {
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     gap: '2rem',
+    padding: '2rem 0',
     zIndex: '1',
   },
 });
@@ -66,6 +67,7 @@ const ContactFormInput = chakra(Input, {
   baseStyle: {
     width: '300px',
     height: '60px',
+    backgroundColor: '#f8f9fa',
     border: '1px solid #212529',
     fontSize: '17px',
     borderRadius: '15px',
@@ -84,6 +86,7 @@ const ContactFormInputMessage = chakra(Textarea, {
     border: '1px solid #212529',
     fontSize: '17px',
     borderRadius: '15px',
+    backgroundColor: '#f8f9fa',
     '&:focus': {
       boxShadow: '0px 0px 15px black',
     },
@@ -119,6 +122,27 @@ const ContactIcon = chakra(DefaultIcon, {
   },
 });
 
+const ContactBgIconWrapper = chakra(Box, {
+  baseStyle: {
+    position: 'absolute',
+    display: 'flex',
+    maxWidth: '400px',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '9rem',
+    zIndex: '0',
+  },
+});
+
+const ContactBgIcon = chakra(Box, {
+  baseStyle: {
+    position: 'relative',
+    width: '35%',
+  },
+});
+
 export {
   ContactMeContainer,
   ContactForm,
@@ -129,4 +153,6 @@ export {
   ContactFormInputMessage,
   ContactButton,
   ContactIcon,
+  ContactBgIconWrapper,
+  ContactBgIcon,
 };
