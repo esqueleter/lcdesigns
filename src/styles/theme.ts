@@ -1,10 +1,12 @@
 import { extendTheme } from "@chakra-ui/react";
-  
+
 export const theme = extendTheme({
     semanticTokens:{
         colors:{
-            error: "green"
-        }
+            dark: "white",
+            light: "black",
+        },
+     
     },
 })
 

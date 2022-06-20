@@ -32,7 +32,7 @@ const AboutEnterpriseText = chakra(Text, {
     fontFamily: 'Raleway',
     fontSize: '16px',
     margin: '1rem 0',
-    maxHeight: '230px',
+    maxHeight: '250px',
     overflow: 'scroll',
   },
 });

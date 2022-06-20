@@ -19,19 +19,21 @@ const Navigation: NextPage<{ navbarState: boolean }> = ({ navbarState }) => {
   const { isOpen, onClose, onToggle } = useDisclosure();
   const btnRef = useRef() as any;
 
+  const themeColor = navbarState && !isOpen ? 'light' : 'dark';
+
   return (
     <>
-      <Navbar>
+      <Navbar background={isOpen ? '#212529' : 'transparent'}>
         <NavbarHeader>
           <Link href="#welcome">
             <NavbarLogo>
               <Image src={logo} width="60px" height="60px" alt="Logo" />
             </NavbarLogo>
           </Link>
-
-          <NavbarTitle variant="dark">LC Designs</NavbarTitle>
-
-          <NavbarButton ref={btnRef} onClick={onToggle}>
+          <Link href="#welcome">
+            <NavbarTitle color={themeColor}>LC Designs</NavbarTitle>
+          </Link>
+          <NavbarButton color={themeColor} ref={btnRef} onClick={onToggle}>
             <NavbarIcon as={isOpen ? BiX : BiMenu} />
           </NavbarButton>
         </NavbarHeader>

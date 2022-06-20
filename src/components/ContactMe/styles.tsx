@@ -28,7 +28,7 @@ const ContactForm = chakra(FormControl, {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    gap: '2rem',
+    gap: '0',
     padding: '2rem 0',
     zIndex: '1',
   },
@@ -36,6 +36,9 @@ const ContactForm = chakra(FormControl, {
 
 const ContactFormHeader = chakra(Box, {
   baseStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.5rem',
     width: '90%',
     margin: '0 auto',
   },
@@ -43,12 +46,8 @@ const ContactFormHeader = chakra(Box, {
 
 const ContactFormText = chakra(Text, {
   baseStyle: {
-    fontSize: '12px',
+    fontSize: '14px',
     textAlign: 'center',
-  },
-  variants: {
-    title: { fontSize: '28px' },
-    subtitle: { fontSize: '12px' },
   },
 });
 
@@ -57,6 +56,7 @@ const ContactFormInputWrapper = chakra(Box, {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    maxWidth: '800px',
     margin: '0 auto',
     alignItems: 'center',
     gap: '2rem',
@@ -65,7 +65,7 @@ const ContactFormInputWrapper = chakra(Box, {
 
 const ContactFormInput = chakra(Input, {
   baseStyle: {
-    width: '300px',
+    width: '100%',
     height: '60px',
     backgroundColor: '#f8f9fa',
     border: '1px solid #212529',
@@ -81,7 +81,7 @@ const ContactFormInputMessage = chakra(Textarea, {
   baseStyle: {
     resize: 'none',
     width: '100%',
-    maxWidth: '800px',
+
     height: '200px',
     border: '1px solid #212529',
     fontSize: '17px',
@@ -122,27 +122,6 @@ const ContactIcon = chakra(DefaultIcon, {
   },
 });
 
-const ContactBgIconWrapper = chakra(Box, {
-  baseStyle: {
-    position: 'absolute',
-    display: 'flex',
-    maxWidth: '400px',
-    width: '100%',
-    height: '100%',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '9rem',
-    zIndex: '0',
-  },
-});
-
-const ContactBgIcon = chakra(Box, {
-  baseStyle: {
-    position: 'relative',
-    width: '35%',
-  },
-});
-
 export {
   ContactMeContainer,
   ContactForm,
@@ -153,6 +132,4 @@ export {
   ContactFormInputMessage,
   ContactButton,
   ContactIcon,
-  ContactBgIconWrapper,
-  ContactBgIcon,
 };

@@ -3,20 +3,26 @@ import { DefaultContainer } from '../../styles/defaultComponents';
 
 const FooterContainer = chakra(DefaultContainer, {
   baseStyle: {
-    backgroundColor: '#212529',
     height: '100%',
     padding: '0',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     paddingTop: '6rem',
+    '@media (min-width: 1024px)': {
+      justifyContent: 'center',
+    },
   },
 });
 
 const FooterHStack = chakra(HStack, {
   baseStyle: {
-    width: '90%',
+    width: '80%',
     margin: '0 auto 1.5rem auto',
     gap: '2rem',
     flexWrap: 'wrap',
+    '@media (min-width: 1024px)': {
+      justifyContent: 'center',
+      transform: 'scale(1.2)',
+    },
   },
 });
 
@@ -25,6 +31,11 @@ const FooterVStack = chakra(VStack, {
     width: '100%',
     alignItems: 'flex-start',
     margin: '0!important',
+    '@media (min-width: 1024px)': {
+      width: '30%',
+      height: '200px',
+      justifyContent: 'stretch',
+    },
   },
 });
 

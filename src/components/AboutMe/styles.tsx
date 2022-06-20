@@ -12,7 +12,7 @@ const AboutMeAvatarHolder = chakra(Box, {
   baseStyle: {
     textAlign: 'center',
     position: 'relative',
-    margin: '1rem auto',
+    margin: '1rem  auto 0 auto',
     width: '8rem',
     height: '8rem',
     span: {
@@ -25,7 +25,7 @@ const AboutMeStack = chakra(VStack, {
   baseStyle: {
     width: '85%',
     margin: '1rem auto',
-    gap: '1rem',
+    gap: '.5rem',
   },
 });
 
@@ -35,26 +35,24 @@ const AboutMeTextWrapper = chakra(VStack, {
   },
 });
 
+const AboutMeHeadText = chakra(Text, {
+  baseStyle: {
+    textAlign: 'center',
+    fontFamily: 'Raleway',
+    margin: '0',
+    fontSize: '22px',
+    fontWeight: '800',
+  },
+});
+
 const AboutMeText = chakra(Text, {
   baseStyle: {
     textAlign: 'left',
     fontFamily: 'Raleway',
-    fontSize: '15px',
-  },
-
-  variants: {
-    title: {
-      fontSize: '0',
-    },
-    subtitle: {
-      fontSize: '0',
-    },
-    longText: {
-      fontFamily: 'Raleway',
-      textAlign: 'left',
-      maxHeight: '200px',
-      overflow: 'scroll',
-    },
+    fontSize: '14px',
+    margin: '0',
+    maxHeight: '250px',
+    overflow: 'scroll',
   },
 });
 
@@ -79,6 +77,7 @@ export {
   AboutMeAvatarHolder,
   AboutMeStack,
   AboutMeTextWrapper,
+  AboutMeHeadText,
   AboutMeText,
   AboutMeSocialMediaWrapper,
   AboutMeSocialMediaItem,

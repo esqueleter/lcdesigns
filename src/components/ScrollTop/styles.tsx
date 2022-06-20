@@ -17,7 +17,11 @@ const ScrollTopButton = chakra(DefaultButton, {
     '&.show': {
       opacity: '1',
     },
-    transition: 'opacity ease-in .5s',
+    '&:hover': {
+      backgroundColor: 'black',
+      opacity: '.9',
+    },
+    transition: 'opacity ease-in .1s',
   },
 });
 

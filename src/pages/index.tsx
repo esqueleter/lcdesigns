@@ -21,6 +21,19 @@ const Home: NextPage = () => {
     if (scrollValue >= 200) {
       setNavbarTheme(true);
       setScrollBarState(true);
+      if (documentSize > 380 && documentSize < 1024) {
+        if (scrollValue >= 4000) {
+          setNavbarTheme(false);
+          setScrollBarState(false);
+        }
+      } else {
+        if (documentSize < 380) {
+          if (scrollValue >= 3000) {
+            setNavbarTheme(false);
+            setScrollBarState(false);
+          }
+        }
+      }
 
       if (documentSize >= 1024 && documentSize < 1600) {
         if (scrollValue >= 3000) {
@@ -55,6 +68,7 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <title>LC Designs</title>
       <Navigation navbarState={navbarTheme} />
 
       <HomeContainer id="home">

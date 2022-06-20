@@ -13,7 +13,7 @@ import {
 
 const Welcome: NextPage = () => {
   return (
-    <Layout id="welcome">
+    <Layout id="welcome" style={{ backgroundColor: '#212529' }}>
       <WelcomeContainer>
         <WelcomeVStack>
           <Image

@@ -7,7 +7,6 @@ import {
 
 const WelcomeContainer = chakra(DefaultContainer, {
   baseStyle: {
-    backgroundColor: '#212529',
     height: '100%',
     '&::-webkit-scrollbar': {
       width: '0px',

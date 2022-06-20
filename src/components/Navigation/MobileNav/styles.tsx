@@ -11,7 +11,7 @@ const NavbarDrawer = chakra(Drawer);
 const NavbarDrawerContent = chakra(DrawerContent, {
   baseStyle: {
     maxWidth: '100vw',
-    height: '94vh',
+    height: '90vh',
     bottom: '0',
     top: 'inherit !important',
     backgroundColor: 'transparent',
@@ -24,7 +24,7 @@ const NavbarList = chakra(List, {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    gap: '4rem',
+    justifyContent: 'space-between',
     padding: '5rem 0',
     backgroundColor: 'rgba(33, 37, 41, 0.90)',
     border: '0',
@@ -40,8 +40,8 @@ const NavbarItem = chakra(ListItem, {
     fontSize: '20px',
     color: 'white',
     backgroundColor: 'transparent',
-    height: '5rem',
-    lineHeight: '5rem',
+    height: '3rem',
+    lineHeight: '3rem',
     a: {
       width: '100%',
       '&:hover': {

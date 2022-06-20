@@ -7,6 +7,7 @@ const LayoutSection = chakra('section', {
     justifyContent: 'center',
     alignItems: 'center',
     scrollSnapAlign: 'center',
+    flexDirection: 'column',
   },
 });
 

@@ -15,7 +15,7 @@ import {
 
 const Footer: NextPage = () => {
   return (
-    <Layout id="footer">
+    <Layout id="footer" style={{ backgroundColor: '#212529' }}>
       <FooterContainer>
         <FooterHStack>
           <FooterVStack>
@@ -64,15 +64,15 @@ const Footer: NextPage = () => {
             <Image src={blackTiger} alt="Tigre Preto" layout="responsive" />
           </div> */}
         </FooterHStack>
-        <Link
-          href="https://www.linkedin.com/in/leonardo-alves-35a7281a0/"
-          passHref
-        >
-          <FooterCreatedBy target="_blank">
-            criado por @leonardo.jsx | 2022
-          </FooterCreatedBy>
-        </Link>
       </FooterContainer>
+      <Link
+        href="https://www.linkedin.com/in/leonardo-alves-35a7281a0/"
+        passHref
+      >
+        <FooterCreatedBy target="_blank">
+          criado por @leonardo.jsx | 2022
+        </FooterCreatedBy>
+      </Link>
     </Layout>
   );
 };

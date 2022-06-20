@@ -14,7 +14,7 @@ const Projects: NextPage = () => {
       <ProjectContainer>
         <Swiper
           slidesPerView={1}
-          centeredSlides={true}
+          slidesPerGroup={1}
           loop={true}
           autoplay={{
             delay: 3500,
@@ -22,21 +22,19 @@ const Projects: NextPage = () => {
           }}
           modules={[Autoplay]}
           style={{
-            maxWidth: '1000px',
             width: '100%',
           }}
           breakpoints={{
             768: {
-              width: 768,
-              slidesPerView: 1,
-              slidesPerGroup: 1,
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
             },
           }}
         >
-          <SwiperSlide>
-            <ImageCard />
-          </SwiperSlide>
-
           <SwiperSlide>
             <ImageCard />
           </SwiperSlide>

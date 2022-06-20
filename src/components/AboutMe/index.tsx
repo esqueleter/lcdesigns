@@ -7,6 +7,7 @@ import {
   AboutMeContainer,
   AboutMeAvatarHolder,
   AboutMeStack,
+  AboutMeHeadText,
   AboutMeTextWrapper,
   AboutMeText,
   AboutMeSocialMediaWrapper,
@@ -27,8 +28,10 @@ const AboutMe: NextPage = () => {
           </AboutMeAvatarHolder>
 
           <AboutMeTextWrapper>
-            <AboutMeText variant="title">Nome Designer</AboutMeText>
-            <AboutMeText variant="subtitle">Profissão designer</AboutMeText>
+            <AboutMeHeadText>Nome Designer</AboutMeHeadText>
+            <AboutMeHeadText fontSize={'16px'}>
+              Profissão designer
+            </AboutMeHeadText>
           </AboutMeTextWrapper>
         </AboutMeStack>
 

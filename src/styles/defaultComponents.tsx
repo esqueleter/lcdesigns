@@ -7,7 +7,7 @@ const DefaultContainer = chakra(Container, {
     alignItems: 'center',
     flexDirection: 'column',
     height: '100%',
-    width: '100%',
+    width: '1200px',
     maxWidth: '100%',
     fontFamily: 'VarelaRound',
   },
