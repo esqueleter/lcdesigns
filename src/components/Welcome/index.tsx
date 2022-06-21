@@ -10,20 +10,21 @@ import {
   WelcomeButton,
   WelcomeIcon,
 } from './styles';
+import { IWelcomePages } from '../../interfaces/IWelcome';
 
-const Welcome: NextPage = () => {
+const Welcome: NextPage<{ data: IWelcomePages }> = ({ data }) => {
   return (
     <Layout id="welcome" style={{ backgroundColor: '#212529' }}>
       <WelcomeContainer>
         <WelcomeVStack>
           <Image
-            src="https://static.tumblr.com/anxftez/F4tq7ucmf/ezgif-5-4c3c2420295d.gif"
+            src={data.welcomeImage.url}
             alt="Logo-gif"
             width={350}
             height={350}
           />
 
-          <WelcomeText>{'scrolla pra baixo :)'}</WelcomeText>
+          <WelcomeText>{data.welcomeText}</WelcomeText>
 
           <Link href="#projects">
             <WelcomeButton>

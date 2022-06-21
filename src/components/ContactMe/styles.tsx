@@ -28,7 +28,7 @@ const ContactForm = chakra(FormControl, {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    gap: '0',
+    gap: '1rem',
     padding: '2rem 0',
     zIndex: '1',
   },

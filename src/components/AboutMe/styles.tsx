@@ -52,6 +52,7 @@ const AboutMeText = chakra(Text, {
     fontSize: '14px',
     margin: '0',
     maxHeight: '250px',
+    maxWidth: '500px',
     overflow: 'scroll',
   },
 });

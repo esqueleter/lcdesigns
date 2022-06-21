@@ -22,11 +22,11 @@ const ImageCard = () => {
           />
         </CardHead>
         <CardBody>
-          <CardTitle>Boost your conversion rate</CardTitle>
+          <CardTitle>QQQQQQQQQQQQQQQQQQ</CardTitle>
           <CardText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat,
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+            diamnonumy eirmod tempor invidunt ut labore et dolore magna
+            aliquyamerat,qqqqqqqqqqqqqqqqqqqqqqqq
           </CardText>
         </CardBody>
       </Card>

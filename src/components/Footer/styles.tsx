@@ -73,10 +73,15 @@ const FooterListItem = chakra(ListItem, {
       transformOrigin: '0% 50%',
     },
     '&:hover': {
-      color: 'white',
       '&::after': {
         transform: 'scaleX(1)',
         transformOrigin: '0% 50%',
+      },
+    },
+
+    a: {
+      '&:hover': {
+        color: 'white',
       },
     },
   },

@@ -1,6 +1,6 @@
 import 'swiper/css';
 import type { NextPage } from 'next';
-import ImageCard from '../ImageCard';
+import ImageCard from './ImageCard';
 import Link from 'next/link';
 import Layout from '../Layout';
 import { Swiper, SwiperSlide } from 'swiper/react';

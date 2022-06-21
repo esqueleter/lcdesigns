@@ -31,6 +31,8 @@ const WelcomeText = chakra(Text, {
     marginTop: '1rem',
     fontSize: '20px',
     color: 'white',
+    textAlign: 'center',
+    maxWidth: '300px',
   },
 });
 
