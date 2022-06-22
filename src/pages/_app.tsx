@@ -8,17 +8,31 @@ import type { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
 
 import client from './api/apolloClient';
+import { useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <ApolloProvider client={client}>
-        <ChakraProvider theme={theme}>
-          <Component {...pageProps} />
-        </ChakraProvider>
-      </ApolloProvider>
-    </>
-  );
+  const [showing, setShowing] = useState(false);
+  useEffect(() => {
+    setShowing(true);
+  }, []);
+
+  if (!showing) {
+    return null;
+  }
+
+  if (typeof window === 'undefined') {
+    return <></>;
+  } else {
+    return (
+      <>
+        <ApolloProvider client={client}>
+          <ChakraProvider theme={theme}>
+            <Component {...pageProps} />
+          </ChakraProvider>
+        </ApolloProvider>
+      </>
+    );
+  }
 }
 
 export default MyApp;

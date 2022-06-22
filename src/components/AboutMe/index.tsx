@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SocialMedia } from './context';
 import Layout from '../Layout';
 import {
   AboutMeContainer,
@@ -13,50 +12,48 @@ import {
   AboutMeSocialMediaWrapper,
   AboutMeSocialMediaItem,
 } from './styles';
+import { IAboutMePages } from '../../interfaces/IAboutMe';
+import { socialMediasIcons } from '../../contexts/SocialMediaContext';
+import { ISocialMedias } from '../../interfaces/ISocialMedias';
 
-const AboutMe: NextPage = () => {
+const AboutMe: NextPage<{ data: IAboutMePages }> = ({ data }) => {
+  const socialMedias = socialMediasIcons(data.socialMedias);
   return (
     <Layout id="about-me">
       <AboutMeContainer>
         <AboutMeStack>
           <AboutMeAvatarHolder>
-            <Image
-              src="https://avatars.githubusercontent.com/u/50511799?s=400&amp;u=3c0bb62e2e8db042df347034b86f4fa89977e2e0&amp;v=4"
-              alt="Designer"
-              layout="fill"
-            />
+            <Image src={data.avatar.url} alt="Designer" layout="fill" />
           </AboutMeAvatarHolder>
 
           <AboutMeTextWrapper>
-            <AboutMeHeadText>Nome Designer</AboutMeHeadText>
-            <AboutMeHeadText fontSize={'16px'}>
-              Profissão designer
-            </AboutMeHeadText>
+            <AboutMeHeadText>{data.title}</AboutMeHeadText>
+            <AboutMeHeadText fontSize={'16px'}>{data.subtitle}</AboutMeHeadText>
           </AboutMeTextWrapper>
         </AboutMeStack>
 
         <AboutMeStack>
-          <AboutMeText variant="longText">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Voluptatibus expedita nostrum neque animi maxime, recusandae
-            tempora! Aut minima obcaecati omnis ratione, a, quasi atque
-            similique mollitia, et fugit minus! Laudantium. Lorem ipsum dolor
-            sit, amet consectetur adipisicing elit. Voluptatibus expedita
-            nostrum neque animi maxime, recusandae tempora! Aut minima obcaecati
-            omnis ratione, a, quasi atque similique mollitia, et fugit minus!
-          </AboutMeText>
+          <AboutMeText variant="longText">{data.content.text}</AboutMeText>
         </AboutMeStack>
 
         <AboutMeStack>
           <AboutMeSocialMediaWrapper>
-            {SocialMedia.map((medias, index) => {
-              return medias.active ? (
-                <Link href={medias.link} key={index}>
-                  <AboutMeSocialMediaItem as={medias.badge} />
-                </Link>
-              ) : (
-                false
-              );
+            {socialMedias.map((value) => {
+              if (value.socialMediaStatus) {
+                return (
+                  <Link
+                    href={value.socialMediaLink}
+                    key={value.socialMediaName}
+                    passHref
+                  >
+                    <a target="_blank">
+                      <AboutMeSocialMediaItem as={value.socialMediaIcon} />
+                    </a>
+                  </Link>
+                );
+              } else {
+                return '';
+              }
             })}
           </AboutMeSocialMediaWrapper>
         </AboutMeStack>

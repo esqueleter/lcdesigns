@@ -1,4 +1,6 @@
+import { NextPage } from 'next';
 import Image from 'next/image';
+import { ICardSlider } from '../../../interfaces/IProjects';
 import {
   CardWrapper,
   Card,
@@ -8,26 +10,16 @@ import {
   CardText,
 } from './styles';
 
-const ImageCard = () => {
+const ImageCard: NextPage<{ data: ICardSlider }> = ({ data }) => {
   return (
     <CardWrapper>
       <Card>
         <CardHead>
-          <Image
-            src={
-              'https://img001.prntscr.com/file/img001/RWTorb49RUW6UCGODopCTA.png'
-            }
-            layout={'fill'}
-            alt="Card Image"
-          />
+          <Image src={data.image.url} layout={'fill'} alt={data.title} />
         </CardHead>
         <CardBody>
-          <CardTitle>QQQQQQQQQQQQQQQQQQ</CardTitle>
-          <CardText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-            diamnonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyamerat,qqqqqqqqqqqqqqqqqqqqqqqq
-          </CardText>
+          <CardTitle>{data.title}</CardTitle>
+          <CardText>{data.content}</CardText>
         </CardBody>
       </Card>
     </CardWrapper>

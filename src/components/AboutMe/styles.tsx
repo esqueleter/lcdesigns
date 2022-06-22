@@ -62,6 +62,11 @@ const AboutMeSocialMediaWrapper = chakra(Box, {
     display: 'flex',
     justifyContent: 'flex-start',
     width: '100%',
+    a: {
+      '&:hover': {
+        color: 'black',
+      },
+    },
   },
 });
 

@@ -10,6 +10,7 @@ const Card = chakra(Box, {
   baseStyle: {
     maxWidth: '280px',
     maxHeight: '470px',
+    height: '470px',
     width: 'full',
     boxShadow: '0 0px 10px -1px black',
     borderRadius: '15px',

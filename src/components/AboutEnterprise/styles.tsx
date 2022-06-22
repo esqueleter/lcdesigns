@@ -42,6 +42,11 @@ const AboutEnterpriseSocialMediaWrapper = chakra(Box, {
     display: 'flex',
     justifyContent: 'flex-end',
     width: '100%',
+    a: {
+      '&:hover': {
+        color: 'black',
+      },
+    },
   },
 });
 

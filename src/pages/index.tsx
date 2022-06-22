@@ -10,8 +10,8 @@ import AboutEnterprise from '../components/AboutEnterprise';
 import ContactMe from '../components/ContactMe';
 import Footer from '../components/Footer';
 import client from './api/apolloClient';
-import { GET_WELCOME } from './api/getWelcome';
-import { IWelcomeData } from '../interfaces/IWelcome';
+import { GET_STATIC_DATA } from './api/getStaticData';
+import { IStaticData } from '../interfaces/IStaticData';
 
 const Home: NextPage = (props: any) => {
   const [navbarTheme, setNavbarTheme] = useState(false);
@@ -69,21 +69,19 @@ const Home: NextPage = (props: any) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const welcomeProps: IWelcomeData = props.data;
-
   return (
     <>
       <title>LC Designs</title>
       <Navigation navbarState={navbarTheme} />
 
       <HomeContainer id="home">
-        <Welcome data={welcomeProps.welcomePages[0]} />
+        <Welcome data={props.welcomeData} />
 
-        <Projects />
+        <Projects data={props.projectPages} />
 
-        <AboutMe />
+        <AboutMe data={props.aboutMeData} />
 
-        <AboutEnterprise />
+        <AboutEnterprise data={props.aboutEnterpriseData} />
 
         <ContactMe />
         <Footer />
@@ -98,12 +96,16 @@ export default Home;
 
 export async function getStaticProps() {
   const { data } = await client.query({
-    query: GET_WELCOME,
+    query: GET_STATIC_DATA,
   });
+  const staticData: IStaticData = data;
 
   return {
     props: {
-      data,
+      welcomeData: staticData.welcomePages[0],
+      projectPages: staticData.projectsPages[0],
+      aboutMeData: staticData.aboutMePages[0],
+      aboutEnterpriseData: staticData.aboutEnterprisePages[0],
     },
   };
 }

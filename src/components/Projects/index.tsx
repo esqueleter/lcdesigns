@@ -7,8 +7,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 import { ProjectContainer, ProjectButton } from './styles';
 import { HiChevronDoubleRight } from 'react-icons/hi';
+import { IProjectsPages } from '../../interfaces/IProjects';
 
-const Projects: NextPage = () => {
+const Projects: NextPage<{ data: IProjectsPages }> = ({ data }) => {
   return (
     <Layout id="projects">
       <ProjectContainer>
@@ -35,9 +36,13 @@ const Projects: NextPage = () => {
             },
           }}
         >
-          <SwiperSlide>
-            <ImageCard />
-          </SwiperSlide>
+          {data.cardSlider.map((value, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <ImageCard data={value} />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
 
         <ProjectButton rightIcon={<HiChevronDoubleRight />}>
