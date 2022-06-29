@@ -13,8 +13,9 @@ import {
   ContactIcon,
 } from './styles';
 import { IoIosPaperPlane } from 'react-icons/io';
+import { IContactMe } from '../../interfaces/IContactMe';
 
-const ContactMe: NextPage = () => {
+const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
   const {
     handleSubmit,
     control,
@@ -29,12 +30,9 @@ const ContactMe: NextPage = () => {
       <ContactMeContainer>
         <ContactForm onSubmit={handleSubmit(submitHandler)}>
           <ContactFormHeader>
-            <ContactFormText fontSize={'28px'}>
-              Entre em contato!
-            </ContactFormText>
+            <ContactFormText fontSize={'28px'}>{data.title}</ContactFormText>
             <ContactFormText variant="subtitle">
-              Se está com alguma dúvida ou deseja me contratar, preencha os
-              campos que entrarei em contato o mais rápido possível!
+              {data.subtitle}
             </ContactFormText>
           </ContactFormHeader>
 

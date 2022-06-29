@@ -83,7 +83,7 @@ const Home: NextPage = (props: any) => {
 
         <AboutEnterprise data={props.aboutEnterpriseData} />
 
-        <ContactMe />
+        <ContactMe data={props.contactMePages} />
         <Footer />
       </HomeContainer>
 
@@ -106,6 +106,7 @@ export async function getStaticProps() {
       projectPages: staticData.projectsPages[0],
       aboutMeData: staticData.aboutMePages[0],
       aboutEnterpriseData: staticData.aboutEnterprisePages[0],
+      contactMePages: staticData.contactMePages[0],
     },
   };
 }
