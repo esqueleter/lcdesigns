@@ -10,6 +10,6 @@ export interface IStaticData{
     projectsPages: IProjectsPages[]
     aboutMePages: IAboutMePages[]
     aboutEnterprisePages: IAboutEnterprisePages[]
-    contactMePages: IContactMe[],
-    footerPages: IFooter[],
+    contactMePages: IContactMe[]
+    footerPages: IFooter[]
 }

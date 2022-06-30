@@ -63,7 +63,6 @@ export const CORE_ABOUT_ENTERPRISE_FIELDS =  gql`
 
 export const CORE_CONTACT_ME_FIELDS =  gql`
     fragment CoreContactMeFields on ContactMePage {
-        email
         subtitle
         title
     }
@@ -72,7 +71,10 @@ export const CORE_CONTACT_ME_FIELDS =  gql`
 
 export const CORE_FOOTER_FIELDS =  gql`
     fragment CoreFooterFields on FooterPage {
-       socialMedias
-       contactMe
+        socialMedias {
+            socialMediaName
+            socialMediaLink
+        }
+        contactMe
     }
 `

@@ -38,26 +38,20 @@ const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
   };
 
   const submitHandler = (formData: IFormData | any) => {
-    console.log(formData);
-    emailjs
-      .sendForm(
-        'service_qivdzlc',
-        'template_110bu5o',
-        form.current,
-        'g5wF2T4TkFsuC8eXO'
-      )
-      .then(
-        (result) => {
-          setIsSended(true);
-          setReturnMessage('Email foi enviado com sucesso!');
-        },
-        (error) => {
-          setIsSended(false);
-          setReturnMessage(
-            'Erro ao enviar o email, tente novamente mais tarde.'
-          );
-        }
-      );
+    const serviceId = process.env.EMAILJS_SERVICE_ID as string;
+    const templateId = process.env.EMAILJS_TEMPLATE_ID as string;
+    const publicKey = process.env.EMAILJS_PUBLIC_KEY as string;
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
+      (result) => {
+        setIsSended(true);
+        setReturnMessage('Email foi enviado com sucesso!');
+      },
+      (error) => {
+        setIsSended(false);
+        setReturnMessage('Erro ao enviar o email, tente novamente mais tarde.');
+      }
+    );
     // reset();
   };
 

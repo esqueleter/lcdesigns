@@ -34,6 +34,8 @@ export const GET_STATIC_DATA = gql`
         footerPages{    
             ...CoreFooterFields
         }
-   
     }
 `
+
+
+

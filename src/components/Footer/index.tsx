@@ -1,8 +1,6 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '../Layout';
-import blackTiger from '../../assets/icons/blackTiger.svg';
 import {
   FooterContainer,
   FooterHStack,
@@ -15,6 +13,7 @@ import {
 import { IFooter } from '../../interfaces/IFooter';
 
 const Footer: NextPage<{ data: IFooter }> = ({ data }) => {
+  console.log(data);
   return (
     <Layout id="footer" style={{ backgroundColor: '#212529' }}>
       <FooterContainer>
@@ -41,29 +40,26 @@ const Footer: NextPage<{ data: IFooter }> = ({ data }) => {
           <FooterVStack>
             <FooterTitle>Redes sociais</FooterTitle>
             <FooterList>
-              <FooterListItem>
-                <Link href="#instagram">instagram</Link>
-              </FooterListItem>
-              <FooterListItem>
-                <Link href="#fatcebook">facebook</Link>
-              </FooterListItem>
-              <FooterListItem>
-                <Link href="#linkedin">linkedin</Link>
-              </FooterListItem>
+              {data.socialMedias.map((value, index) => {
+                return (
+                  <FooterListItem key={index}>
+                    <Link href={value.socialMediaLink}>
+                      {value.socialMediaName}
+                    </Link>
+                  </FooterListItem>
+                );
+              })}
             </FooterList>
           </FooterVStack>
 
           <FooterVStack>
             <FooterTitle>Entre em contato</FooterTitle>
             <FooterList>
-              <FooterListItem>(11) 12345-6789</FooterListItem>
-              <FooterListItem>lcdesigns@gmail.com</FooterListItem>
+              {data.contactMe.map((value, index) => {
+                return <FooterListItem key={index}>{value}</FooterListItem>;
+              })}
             </FooterList>
           </FooterVStack>
-
-          {/* <div >
-            <Image src={blackTiger} alt="Tigre Preto" layout="responsive" />
-          </div> */}
         </FooterHStack>
       </FooterContainer>
       <Link
