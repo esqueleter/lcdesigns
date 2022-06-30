@@ -7,6 +7,7 @@ const nextConfig = {
       'img001.prntscr.com',
       'avatars.githubusercontent.com',
       'media.graphassets.com',
+      'gifer.com',
     ],
     formats: ['image/avif', 'image/webp'],
   },
