@@ -7,7 +7,7 @@ export interface IAboutEnterprisePages{
 }
 
 interface IContent{ 
-    text: string;
+    html: HTMLElement;
 }
 
 interface IBanner{ 

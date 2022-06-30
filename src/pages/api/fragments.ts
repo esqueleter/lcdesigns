@@ -32,7 +32,7 @@ export const CORE_ABOUTME_FIELDS =  gql`
         title
         subtitle
         content {
-            text
+            html
         }
         avatar {
             url

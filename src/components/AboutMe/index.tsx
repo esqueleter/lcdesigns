@@ -33,7 +33,10 @@ const AboutMe: NextPage<{ data: IAboutMePages }> = ({ data }) => {
         </AboutMeStack>
 
         <AboutMeStack>
-          <AboutMeText variant="longText">{data.content.text}</AboutMeText>
+          <AboutMeText
+            variant="longText"
+            dangerouslySetInnerHTML={{ __html: data.content.html }}
+          />
         </AboutMeStack>
 
         <AboutMeStack>

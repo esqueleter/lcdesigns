@@ -29,7 +29,9 @@ const AboutEnterprise: NextPage<{ data: IAboutEnterprisePages }> = ({
         </AboutEnterpriseStack>
 
         <AboutEnterpriseStack>
-          <AboutEnterpriseText>{data.content.text}</AboutEnterpriseText>
+          <AboutEnterpriseText
+            dangerouslySetInnerHTML={{ __html: data.content.html }}
+          />
         </AboutEnterpriseStack>
 
         <AboutEnterpriseStack>

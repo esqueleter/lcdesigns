@@ -9,7 +9,7 @@ export interface IAboutMePages{
 }
 
 interface IContent{ 
-    text: string;
+    html: HTMLElement;
 }
 
 interface IAvatar{ 
