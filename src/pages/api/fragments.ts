@@ -56,7 +56,7 @@ export const CORE_ABOUT_ENTERPRISE_FIELDS =  gql`
             socialMediaStatus
         }
         content {
-            text
+            html
         }
     }
 `
