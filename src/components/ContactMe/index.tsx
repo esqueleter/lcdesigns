@@ -11,24 +11,60 @@ import {
   ContactFormInputMessage,
   ContactButton,
   ContactIcon,
+  SuccessMessage,
+  ErrorMessage,
 } from './styles';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IContactMe } from '../../interfaces/IContactMe';
+import emailjs from '@emailjs/browser';
+import { useRef, useState } from 'react';
 
 const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
+  const form = useRef() as any;
   const {
     handleSubmit,
     control,
     formState: { errors },
+    reset,
     getValues,
   } = useForm();
+  const [isSendend, setIsSended] = useState(false);
+  const [returnMessage, setReturnMessage] = useState('');
 
-  const submitHandler = () => {};
+  type IFormData = {
+    lcName: string;
+    lcEmail: string;
+    lcMessage: string;
+  };
+
+  const submitHandler = (formData: IFormData | any) => {
+    console.log(formData);
+    emailjs
+      .sendForm(
+        'service_qivdzlc',
+        'template_110bu5o',
+        form.current,
+        'g5wF2T4TkFsuC8eXO'
+      )
+      .then(
+        (result) => {
+          setIsSended(true);
+          setReturnMessage('Email foi enviado com sucesso!');
+        },
+        (error) => {
+          setIsSended(false);
+          setReturnMessage(
+            'Erro ao enviar o email, tente novamente mais tarde.'
+          );
+        }
+      );
+    // reset();
+  };
 
   return (
     <Layout id="contact-me">
       <ContactMeContainer>
-        <ContactForm onSubmit={handleSubmit(submitHandler)}>
+        <ContactForm ref={form} onSubmit={handleSubmit(submitHandler)}>
           <ContactFormHeader>
             <ContactFormText fontSize={'28px'}>{data.title}</ContactFormText>
             <ContactFormText variant="subtitle">
@@ -38,7 +74,7 @@ const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
 
           <ContactFormInputWrapper>
             <Controller
-              name="formUsername"
+              name="lcName"
               control={control}
               defaultValue=""
               render={({ field }) => (
@@ -52,9 +88,12 @@ const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
                 </>
               )}
             ></Controller>
+            {errors.lcName && errors.lcName.type === 'required' && (
+              <span>Insira seu nome!</span>
+            )}
 
             <Controller
-              name="formEmail"
+              name="lcEmail"
               control={control}
               defaultValue=""
               render={({ field }) => (
@@ -68,8 +107,12 @@ const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
                 </>
               )}
             ></Controller>
+
+            {errors.lcEmail && errors.lcEmail.type === 'required' && (
+              <span>Insira seu email!</span>
+            )}
             <Controller
-              name="formMessage"
+              name="lcMessage"
               control={control}
               defaultValue=""
               render={({ field }) => (
@@ -83,11 +126,20 @@ const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
                 </>
               )}
             ></Controller>
-          </ContactFormInputWrapper>
+            {errors.lcMessage && errors.lcMessage.type === 'required' && (
+              <span>Insira sua mensagem!</span>
+            )}
 
-          <ContactButton type="submit">
-            <ContactIcon as={IoIosPaperPlane} />
-          </ContactButton>
+            {isSendend ? (
+              <SuccessMessage>{returnMessage}</SuccessMessage>
+            ) : (
+              <ErrorMessage>{returnMessage}</ErrorMessage>
+            )}
+
+            <ContactButton type="submit">
+              <ContactIcon as={IoIosPaperPlane} />
+            </ContactButton>
+          </ContactFormInputWrapper>
         </ContactForm>
       </ContactMeContainer>
     </Layout>

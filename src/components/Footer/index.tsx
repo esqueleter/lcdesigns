@@ -12,8 +12,9 @@ import {
   FooterListItem,
   FooterCreatedBy,
 } from './styles';
+import { IFooter } from '../../interfaces/IFooter';
 
-const Footer: NextPage = () => {
+const Footer: NextPage<{ data: IFooter }> = ({ data }) => {
   return (
     <Layout id="footer" style={{ backgroundColor: '#212529' }}>
       <FooterContainer>

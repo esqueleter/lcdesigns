@@ -84,7 +84,7 @@ const Home: NextPage = (props: any) => {
         <AboutEnterprise data={props.aboutEnterpriseData} />
 
         <ContactMe data={props.contactMePages} />
-        <Footer />
+        <Footer data={props.footerPages} />
       </HomeContainer>
 
       <ScrollTop scrollBarState={scrollBarState} />
@@ -107,6 +107,7 @@ export async function getStaticProps() {
       aboutMeData: staticData.aboutMePages[0],
       aboutEnterpriseData: staticData.aboutEnterprisePages[0],
       contactMePages: staticData.contactMePages[0],
+      footerPages: staticData.footerPages[0],
     },
   };
 }

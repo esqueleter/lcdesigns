@@ -1,11 +1,4 @@
-import {
-  Input,
-  FormControl,
-  Box,
-  Text,
-  chakra,
-  Textarea,
-} from '@chakra-ui/react';
+import { Input, Box, Text, chakra, Textarea } from '@chakra-ui/react';
 import {
   DefaultButton,
   DefaultContainer,
@@ -21,7 +14,7 @@ const ContactMeContainer = chakra(DefaultContainer, {
   },
 });
 
-const ContactForm = chakra(FormControl, {
+const ContactForm = chakra('form', {
   baseStyle: {
     fontFamily: 'VarelaRound',
     height: '100%',
@@ -59,7 +52,7 @@ const ContactFormInputWrapper = chakra(Box, {
     maxWidth: '800px',
     margin: '0 auto',
     alignItems: 'center',
-    gap: '2rem',
+    gap: '0.7rem',
   },
 });
 
@@ -106,6 +99,9 @@ const ContactButton = chakra(DefaultButton, {
     '&:hover': {
       transform: 'scale(1.1)',
       backgroundColor: '#212529',
+      svg: {
+        color: 'white',
+      },
     },
   },
 });
@@ -122,6 +118,24 @@ const ContactIcon = chakra(DefaultIcon, {
   },
 });
 
+const SuccessMessage = chakra('span', {
+  baseStyle: {
+    textAlign: 'center',
+    color: 'green',
+    fontSize: '16px',
+    padding: '.1rem',
+  },
+});
+
+const ErrorMessage = chakra('span', {
+  baseStyle: {
+    textAlign: 'center',
+    color: 'red',
+    fontSize: '16px',
+    padding: '.1rem',
+  },
+});
+
 export {
   ContactMeContainer,
   ContactForm,
@@ -132,4 +146,6 @@ export {
   ContactFormInputMessage,
   ContactButton,
   ContactIcon,
+  SuccessMessage,
+  ErrorMessage,
 };
