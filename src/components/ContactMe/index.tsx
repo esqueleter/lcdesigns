@@ -16,43 +16,37 @@ import {
 } from './styles';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IContactMe } from '../../interfaces/IContactMe';
-import emailjs from '@emailjs/browser';
 import { useRef, useState } from 'react';
+import { sendEmail } from '../../pages/api/sendEmail';
 
 const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
   const form = useRef() as any;
+
   const {
     handleSubmit,
     control,
     formState: { errors },
     reset,
-    getValues,
   } = useForm();
+
   const [isSendend, setIsSended] = useState(false);
   const [returnMessage, setReturnMessage] = useState('');
 
-  type IFormData = {
-    lcName: string;
-    lcEmail: string;
-    lcMessage: string;
-  };
-
-  const submitHandler = (formData: IFormData | any) => {
-    const serviceId = process.env.EMAILJS_SERVICE_ID as string;
-    const templateId = process.env.EMAILJS_TEMPLATE_ID as string;
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY as string;
-
-    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
-      (result) => {
+  const submitHandler = (formData: {
+    lcName?: string;
+    lcEmail?: string;
+    lcMessage?: string;
+  }) => {
+    sendEmail(formData)
+      .then((res: any) => {
         setIsSended(true);
         setReturnMessage('Email foi enviado com sucesso!');
-      },
-      (error) => {
+      })
+      .catch((err: any) => {
         setIsSended(false);
         setReturnMessage('Erro ao enviar o email, tente novamente mais tarde.');
-      }
-    );
-    // reset();
+      });
+    reset();
   };
 
   return (

@@ -16,7 +16,6 @@ import { IStaticData } from '../interfaces/IStaticData';
 const Home: NextPage = (props: any) => {
   const [navbarTheme, setNavbarTheme] = useState(false);
   const [scrollBarState, setScrollBarState] = useState(false);
-  console.log(props);
   const controlNavbar = () => {
     let scrollValue = document.querySelector('#home')?.scrollTop as number;
     let documentSize = document.querySelector('#home')?.clientWidth as number;
