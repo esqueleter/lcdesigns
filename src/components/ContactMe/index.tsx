@@ -17,7 +17,7 @@ import {
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IContactMe } from '../../interfaces/IContactMe';
 import { useRef, useState } from 'react';
-import { sendEmail } from '../../pages/api/sendEmail';
+import emailjs from '@emailjs/browser';
 
 const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
   const form = useRef() as any;
@@ -32,20 +32,26 @@ const ContactMe: NextPage<{ data: IContactMe }> = ({ data }) => {
   const [isSendend, setIsSended] = useState(false);
   const [returnMessage, setReturnMessage] = useState('');
 
-  const submitHandler = (formData: {
-    lcName?: string;
-    lcEmail?: string;
-    lcMessage?: string;
-  }) => {
-    sendEmail(formData)
-      .then((res: any) => {
-        setIsSended(true);
-        setReturnMessage('Email foi enviado com sucesso!');
-      })
-      .catch((err: any) => {
-        setIsSended(false);
-        setReturnMessage('Erro ao enviar o email, tente novamente mais tarde.');
-      });
+  const submitHandler = () => {
+    emailjs
+      .sendForm(
+        'service_qivdzlc',
+        'template_110bu5o',
+        form.current,
+        'g5wF2T4TkFsuC8eXO'
+      )
+      .then(
+        (result) => {
+          setIsSended(true);
+          setReturnMessage('Email foi enviado com sucesso!');
+        },
+        (error) => {
+          setIsSended(false);
+          setReturnMessage(
+            'Erro ao enviar o email, tente novamente mais tarde.'
+          );
+        }
+      );
     reset();
   };
 
