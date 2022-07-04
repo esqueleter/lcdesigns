@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/globals.css';
 import '../styles/fonts.css';
 import '../styles/animations.css';
@@ -9,7 +8,6 @@ import { ApolloProvider } from '@apollo/client';
 
 import client from './api/apolloClient';
 import { useEffect, useState } from 'react';
-
 function MyApp({ Component, pageProps }: AppProps) {
   const [showing, setShowing] = useState(false);
   useEffect(() => {

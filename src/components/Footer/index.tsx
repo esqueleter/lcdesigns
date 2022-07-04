@@ -13,7 +13,6 @@ import {
 import { IFooter } from '../../interfaces/IFooter';
 
 const Footer: NextPage<{ data: IFooter }> = ({ data }) => {
-  console.log(data);
   return (
     <Layout id="footer" style={{ backgroundColor: '#212529' }}>
       <FooterContainer>
