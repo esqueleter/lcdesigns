@@ -4,7 +4,7 @@
 
 # 🐯 LC Designs 
 
-### Application made to introduct Larissa Carvalho's portfolio.
+### Application made to introduct a designer portfolio.
 
 #### Simple and modern layout, made to be a way to contact the designer and show a introduction about her enterprise and professional life. 
 
